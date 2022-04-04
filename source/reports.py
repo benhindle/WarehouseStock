@@ -1,6 +1,5 @@
 import os
 import pathlib
-# from importlib.resources import path
 from borb.pdf.document.document import Document
 from borb.pdf.page.page import Page
 from borb.pdf.pdf import PDF
@@ -9,11 +8,9 @@ from decimal import Decimal
 from borb.pdf.canvas.layout.image.image import Image
 from borb.pdf.canvas.layout.table.fixed_column_width_table import FixedColumnWidthTable as Table
 from borb.pdf.canvas.layout.text.paragraph import Paragraph
-# from borb.pdf.canvas.layout.layout_element import Alignment
 from datetime import datetime
 from borb.pdf.canvas.color.color import HexColor, X11Color
 from borb.pdf.canvas.layout.table.table import TableCell
-# from borb.pdf.canvas.layout.annotation.link_annotation import DestinationType
 
 import random
 
@@ -40,7 +37,7 @@ class Report:
         # Table content
         page_layout.add(self.build_stock_content(current_stock))
 
-        with open("stock_report.pdf", "wb") as pdf_file_handle:
+        with open("reports/stock_report.pdf", "wb") as pdf_file_handle:
             PDF.dumps(pdf_file_handle, pdf)
 
 
@@ -60,7 +57,7 @@ class Report:
         # Table content
         page_layout.add(self.build_fulfil_content(fulfilment_data))
 
-        with open("fulfilled_report.pdf", "wb") as pdf_file_handle:
+        with open("reports/fulfilled_report.pdf", "wb") as pdf_file_handle:
             PDF.dumps(pdf_file_handle, pdf)
 
 
